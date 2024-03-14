@@ -110,7 +110,7 @@ class UserHelper:
         google_user, created = GoogleSSOUser.objects.get_or_create(user=user)
         google_user.google_id = self.user_info.get("id")
         google_user.picture_url = self.user_info.get("picture")
-        google_user.locale = self.user_info.get("locale")
+        google_user.locale = self.user_info.get("locale", "")
         google_user.save()
 
         return user
